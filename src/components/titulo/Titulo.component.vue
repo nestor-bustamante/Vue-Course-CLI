@@ -1,8 +1,22 @@
 <template>
   <div>
     <!-- <h2>{{ titulo }}</h2> -->
-    <h2>{{ upperTitle() }}</h2>
+    <h2 class="muted">{{ upperTitle() }}</h2>
     <p>Number of "<em>todos</em>": {{ todonum }}</p>
+
+    <div class="header clearix">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <router-link to="/" class="nav-link">Inicio</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/otra-pagina" class="nav-link">Otra página</router-link>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
   </div>
 </template>
 
@@ -20,6 +34,7 @@ export default {
   },
   data(){
     return {
+      id: this.$route.params.id,
       todonum: 0
     }
   },
@@ -35,3 +50,17 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+  .nav-item {
+    a {
+      &.is-active {
+        color: #007bff;
+        &:focus,
+        &:hover {
+          color: #007bff;
+        }
+      }
+    }
+  }
+</style>

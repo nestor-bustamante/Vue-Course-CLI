@@ -2,6 +2,17 @@ import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource';
 
+import VueRouter from 'vue-router';
+import { routes } from './routes';
+
+Vue.use(VueRouter);
+
+const myroutes = new VueRouter({
+  routes: routes,
+  mode: 'history',
+  linkExactActiveClass: 'active',
+})
+
 Vue.use(VueResource);
 Vue.http.options.root = 'https://todovue-19af8.firebaseio.com';
 
@@ -44,5 +55,6 @@ Vue.directive('decorar', {
 
 new Vue({
   el: '#app',
+  router: myroutes, // definir constante de las rutas
   render: h => h(App)
 })

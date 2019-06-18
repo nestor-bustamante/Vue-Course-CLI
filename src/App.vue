@@ -3,6 +3,8 @@
     <div class="row justify-content-center">
       <div class="col-6 align-self-center jumbotron">
         <titulo :titulo="titulo"></titulo>
+        <router-view></router-view>
+        <br>
         <!--  incrementarContador escucha lo que el hijo emite. -->
         <!-- <addtodo :todolist="todolist" v-on:incrementarContador="todonum += $event"></addtodo> -->
         <addtodo :todolist="todolist" :counterUpdate="counterUpdate"></addtodo>
@@ -17,8 +19,7 @@
         <keep-alive><!--// este tag no destruye el componente //-->
           <component v-bind:is="selectComponent"></component>
         </keep-alive>
-        
-        
+
       </div>
     </div>
   </div>
@@ -78,7 +79,7 @@ export default {
           terminada: resp[item].terminada
         }
         this.todolist.push(todo);
-      } 
+      }
     })
   }
 }
